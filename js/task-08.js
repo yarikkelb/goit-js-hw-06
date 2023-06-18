@@ -1,24 +1,22 @@
-document.body.style.backgroundColor = '#232931';
-document.body.style.color = '#eeeeee';
+const form = document.querySelector('.login-form');
+console.dir(form);
 
-const loginForm = document.querySelector('.login-form');
-loginForm.addEventListener('submit', handleFormSubmit);
+form.addEventListener("submit", handleFormSubmit);
 
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const { email, password } = e.currentTarget.elements;
-  // const {
-  //   elements: { email, password },
-  // } = e.currentTarget;
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const { email, password } = event.currentTarget.elements;
+  
 
   if (!email.value.trim() || !password.value.trim()) {
     return alert('Please fill in all the fields!');
-  } else {
-    const formData = {
+  }
+  
+    const data = {
       email: email.value,
       password: password.value,
     };
-    console.log(formData);
-    e.currentTarget.reset();
+    console.log(data);
+    event.currentTarget.reset();
   }
-}
+
