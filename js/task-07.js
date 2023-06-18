@@ -1,7 +1,8 @@
-document.querySelector('body').style.backgroundColor = '#eaf1fad0';
-const inputRangeRef = document.getElementById('font-size-control');
-const textRef = document.getElementById('text');
-const fontSizeControl = ({ currentTarget }) =>
-  (textRef.style.fontSize = `${currentTarget.value}px`);
+const input = document.querySelector("#font-size-control");
+const span = document.querySelector("#text");
 
-inputRangeRef.addEventListener('input', fontSizeControl);
+input.addEventListener("input", handlerInputRange);
+function handlerInputRange(event) {
+  span.style.fontSize = `${event.target.value}px`;
+  console.log(span.style.fontSize);
+}
