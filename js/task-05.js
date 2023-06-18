@@ -1,10 +1,14 @@
-const inputName = document.getElementById('name-input');
-const outputName = document.getElementById('name-output');
+const selectors = {
+    input: document.querySelector('#name-input'),
+    output: document.querySelector('#name-output'),
+}; 
+selectors.input.addEventListener("input", handlerInput);
 
-const placeholder = (event) => {
-    outputName.textContent = inputName.value !== ''
-        ? event.currentTarget.value
-        : 'Anonymous';
-};
+function handlerInput(event) {
+    selectors.output.textContent = event.target.value.trim();
+    if (!event.target.value.trim()) {
+        selectors.output.textContent = "Anonymous";
+    }
+        
+}
 
-inputName.addEventListener('input', placeholder);
